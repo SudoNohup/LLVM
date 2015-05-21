@@ -1,0 +1,29 @@
+Please read prog4.pdf for the requirement.
+
+Jianyu Huang(UT EID:jh57266)
+email:jianyu@cs.utexas.edu
+
+run the testcase:
+$make
+$./vsh.sh inputfile/dcetest
+$./vsh.sh inputfile/licetest
+
+I implement the dominator analysis in domAnalysis.h under the IDFA framework.
+
+Dominator Analysis:
+***INPUT***
+A Control Flow Graph (CFG) with all basicblocks B and the predecessor and successor relationship.
+***OUTPUT***
+Dominator[B] = OUT[B], the set of nodes that dominate B
+***DETAIL***
+1. Direction: forward
+2. Domain: the power set of all blocks
+3. Transfer Function: f(x) = x U {B}
+4. Meet Operator: Intersection
+5. Initial Flow Value: Universal Set
+6. Boundary Condition: IN[entry] = Empty Set
+7. DataFlow Equations:
+--OUT[B] = f(IN[B])
+--In[B] = INTERSECTION_(P in pred(B)) OUT(P)
+
+

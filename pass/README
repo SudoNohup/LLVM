@@ -1,0 +1,6 @@
+Jianyu Huang(jh57266)
+
+Run the following command in the terminal to see the result:
+make
+clang -c -g -emit-llvm loop.c
+opt -load ./assignment1.so -assignment1 loop.bc > /dev/null   

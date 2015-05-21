@@ -1,0 +1,52 @@
+Jianyu Huang(UT EID:jh57266)
+email:jianyu@cs.utexas.edu
+
+------Performance Evaluation------
+
+******My benchmarks are ./inputfile/dcetest.c and ./inputfile/licmtest.c
+
+---1. Run the DCE benchmark (./inputfile/dcetest.c):
+(
+Type in the following command in the terminal: 
+$./dcetest.sh ./inputfile/dcetest
+)
+
+The result is show as the following:
+Unoptimized (with clang)
+11.230000 seconds
+My DCE optimized (with clang)
+7.420000 seconds
+LLVM DCE optimized (with clang)
+11.060000 seconds
+Unoptimized (with gcc)
+1.630000 seconds
+My DCE optimized (with gcc)
+1.300000 seconds
+LLVM DCE optimized (with gcc)
+1.620000 seconds
+
+So after dead code elimination, the performance has been improved a lot.
+
+---2. Run the LICM benchmark (./input/licmtest.c):
+(
+Type in the following command in the terminal: 
+$./licmtest.sh ./inputfile/licmtest
+)
+
+The result is show as the following:
+Unoptimized (with clang)
+9.040000 seconds
+My LICM optimized (with clang)
+8.920000 seconds
+LLVM LICM optimized (with clang)
+8.850000 seconds
+Unoptimized (with gcc)
+1.500000 seconds
+My LICM optimized (with gcc)
+1.560000 seconds
+LLVM LICM optimized (with gcc)
+1.500000 seconds
+
+So the program doesn't gain much performance improvement from loop invariant
+code motion. Maybe it is because I didn't measure the time correctly, or
+"clang/gcc" command has already executed licm by default (So the time is always similar for all three cases).
